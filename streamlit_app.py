@@ -1,8 +1,30 @@
+import numpy as np
+import altair as alt
+import pandas as pd
 import streamlit as st
 
-st.header('st.button')
+st.header('st.write')
 
-if st.button('*say hello*', help="Click me!"):
-  st.write('Why hello?')
-else:
-  st.write('Goodbye!')
+st.write('Hello, *World!* :sunglasses:')
+
+st.write(1234)
+
+df = pd.DataFrame({
+  'première colonne' : [1, 2, 3, 4],
+  'deuxième colonne' : [10, 20, 30, 40]
+})
+
+st.write(df)
+
+st.write('Ci-dessous se trouve un DataFrame :', df)
+
+df2 = pd.DataFrame(
+  np.random.randn(200,3),
+  columns=['a', 'b', 'c']
+)
+
+c = alt.Chart(df2).mark_circle().encode(
+  x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c']
+)
+
+st.write('Et ci-dessous se trouve un beau graphique aléatoire :', c)
