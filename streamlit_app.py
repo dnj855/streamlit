@@ -2,11 +2,10 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-st.header('Line chart')
+st.header('Select box')
 
-df = pd.DataFrame(
-  np.random.randn(20,3),
-  columns=['a', 'b', 'c']
-)
+sb = st.selectbox('Which color is your favourite ?', [
+  'Blue', 'Yellow', 'Green'
+])
 
-st.line_chart(df)
+st.write('Your favourite color is', sb.lower() + '.')
